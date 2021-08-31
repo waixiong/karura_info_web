@@ -1,7 +1,6 @@
 {
   "name": "karura_info",
   "version": "0.1.0",
-  "homepage": "./karura_info_web/",
   "private": true,
   "dependencies": {
     "@acala-network/api": "^2.0.1",
