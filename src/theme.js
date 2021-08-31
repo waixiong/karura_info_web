@@ -5,8 +5,8 @@ export const theme = createTheme({
     type: "dark",
     primary: {
       light: '#e40c5b',
-      main: '#e40c5b',
-      dark: '#e40c5b',
+      main: '#f53347',
+      dark: '#f53347',
       contrastText: '#fff',
     },
     secondary: {

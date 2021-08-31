@@ -173,7 +173,7 @@ function LiquidityPoolDataCard(props) {
                         {/* <XAxis dataKey="date" /> */}
                         {/* <YAxis /> */}
                         <Tooltip 
-                            cursor={{ fill: theme.bg2 }}
+                            cursor={{ fill: theme.palette.secondary.dark }}
                             contentStyle={{ display: 'none' }}
                             formatter={(value, name, props) => {
                               setValue(props.payload.volumeNative.toFixed(3) + ' KSM');
