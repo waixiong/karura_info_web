@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/karura_info_web/static/css/main.73771a4f.chunk.css",
+    "main.js": "/karura_info_web/static/js/main.c8fa2b25.chunk.js",
+    "main.js.map": "/karura_info_web/static/js/main.c8fa2b25.chunk.js.map",
+    "runtime-main.js": "/karura_info_web/static/js/runtime-main.ac294142.js",
+    "runtime-main.js.map": "/karura_info_web/static/js/runtime-main.ac294142.js.map",
+    "static/js/2.b971866c.chunk.js": "/karura_info_web/static/js/2.b971866c.chunk.js",
+    "static/js/2.b971866c.chunk.js.map": "/karura_info_web/static/js/2.b971866c.chunk.js.map",
+    "static/js/3.5365e345.chunk.js": "/karura_info_web/static/js/3.5365e345.chunk.js",
+    "static/js/3.5365e345.chunk.js.map": "/karura_info_web/static/js/3.5365e345.chunk.js.map",
+    "index.html": "/karura_info_web/index.html",
+    "static/css/main.73771a4f.chunk.css.map": "/karura_info_web/static/css/main.73771a4f.chunk.css.map",
+    "static/js/2.b971866c.chunk.js.LICENSE.txt": "/karura_info_web/static/js/2.b971866c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ac294142.js",
+    "static/js/2.b971866c.chunk.js",
+    "static/css/main.73771a4f.chunk.css",
+    "static/js/main.c8fa2b25.chunk.js"
+  ]
+}
