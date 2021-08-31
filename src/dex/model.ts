@@ -12,19 +12,23 @@ export interface RawEvent {
 export class Block {
     id: string;
     timestamp: number;
+    number: number;
 
     constructor(
         id?: string,
         timestamp?: number,
+        number?: number
     ) {
         this.id = id || '';
         this.timestamp = timestamp || 0;
+        this.number = number || 0;
     }
 
-    public static fromJson(args: { id: string, timestamp: string }) {
+    public static fromJson(args: { id: string, timestamp: string, number: number }) {
         let result: Block = new Block(
             args.id,
             Date.parse(args.timestamp+'Z'),
+            args.number,
         );
         return result;
     }
@@ -54,7 +58,7 @@ export class SwapEvent {
         let result: SwapEvent = new SwapEvent();
         result.id = obj.id;
         result.blockNumber = obj.blockNumber;
-        result.block = Block.fromJson(obj.block as { id: string, timestamp: string });
+        result.block = Block.fromJson(obj.block as { id: string, timestamp: string, number: number });
         var swappingToken: { token: string }[]
         if (obj.data.length === 4) {
             // old structure: Swap(T::AccountId, Vec<CurrencyId>, Balance, Balance)

@@ -1,16 +1,13 @@
 import './App.css';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { Example, LastBlockSync, LiquidityDataComponent } from './app.query';
+import { LastBlockSync, LiquidityDataComponent } from './app.query';
 import { theme } from './theme';
 
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import {
-  AppBar, Toolbar, Typography, Paper, List
+  AppBar, Toolbar, Typography
 } from '@material-ui/core';
-import {
-  MenuIcon 
-} from '@material-ui/icons/Menu';
 
 // https://github.com/Uniswap/uniswap-v3-info/blob/188b6e666afd7e7c00d20a8731cd0ea76fccc6c9/src/components/BarChart/alt.tsx
 // https://github.com/Uniswap/uniswap-v3-info/blob/188b6e666afd7e7c00d20a8731cd0ea76fccc6c9/src/components/LineChart/alt.tsx

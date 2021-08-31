@@ -92,6 +92,7 @@ export async function querySwap(
                         block {
                             id
                             timestamp
+                            number
                         }
                     }
                 }
@@ -134,6 +135,7 @@ export async function querySwapFromBlock(
                         block {
                             id
                             timestamp
+                            number
                         }
                     }
                 }

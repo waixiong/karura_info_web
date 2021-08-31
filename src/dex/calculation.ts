@@ -15,7 +15,7 @@ export async function getSwapEventOnLast24h() : Promise<SwapEvent[]> {
     // Start of day, set at UTC 00:00:00.000
     var date: Date = new Date();
     date.setHours(date.getHours() - 24);
-    var fromBlockEstimate = (await lastBlockFromSubquery()) - 7300;
+    var fromBlockEstimate = (await lastBlockFromSubquery()).number - 7300;
 
     // first query, expected only need one query
     var swapEvents = await querySwapFromBlock(fromBlockEstimate, 'https://api.polkawallet.io/karura-subql');
@@ -50,7 +50,7 @@ export async function getSwapEventUntilDate(date?: Date) : Promise<SwapEvent[]> 
 
     // get block number from, with the milliseconds different, plus 100 as extra
     var millisecondsDifferent = ((new Date()).getTime() - date.getTime());
-    var fromBlockEstimate = (await lastBlockFromSubquery()) - (millisecondsDifferent / 12000 + 100);
+    var fromBlockEstimate = (await lastBlockFromSubquery()).number - (millisecondsDifferent / 12000 + 100);
 
     // first query, expected only need one query
     var swapEvents = await querySwapFromBlock(fromBlockEstimate, 'https://api.polkawallet.io/karura-subql');

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
-import { LastBlockNumberQuery } from './block';
+import { LastBlockNumberQuery, LastBlockQuery } from './block';
 import { Volume7DayQuery, Volume24HQuery, LiquidityDataQuery } from './dex/dex.query';
 import { makeStyles } from '@material-ui/core/styles';
 import dayjs from 'dayjs'
@@ -35,48 +35,32 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
       },
     },
+    syncTitle: {
+        '& > *': {
+            margin: theme.spacing(0),
+        },
+    },
     smallTitle: {
         fontSize: 12,
     },
     smallValue: {
         fontSize: 20,
     },
-  }));
-
-export function Example() {
-    const { isLoading, error, data } = useQuery('repoData', () =>
-        fetch('https://api.github.com/repos/tannerlinsley/react-query').then(res => {
-            var result = res.json();
-            console.log(result);
-            return result;
-        })
-    )
-
-    if (isLoading) return 'Loading...'
-
-    if (error) return 'An error has occurred: ' + error.message
-
-    return (
-        <div>
-            <h1>{data.name}</h1>
-            <p>{data.description}</p>
-            <strong>👀 {data.subscribers_count}</strong>{' '}
-            <strong>✨ {data.stargazers_count}</strong>{' '}
-            <strong>🍴 {data.forks_count}</strong>
-        </div>
-    )
-}
+}));
 
 export function LastBlockSync() {
-    const { isLoading, error, data } = LastBlockNumberQuery();
+    const classes = useStyles();
+
+    const { isLoading, error, data } = LastBlockQuery();
 
     if (isLoading) return 'Loading...'
 
     if (error) return 'An error has occurred: ' + error.message
 
     return (
-        <div>
-            <p>Sync At Block <strong>{data}</strong></p>
+        <div className={classes.syncTitle}>
+            <p>Sync At Block <strong>{data.number}</strong></p>
+            <p className={classes.smallTitle}>{new Date(data.timestamp).toUTCString()}</p>
         </div>
     )
 }

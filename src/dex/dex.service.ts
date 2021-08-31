@@ -11,13 +11,14 @@ import {
     historyRateFromLiquidity,
     LiquidityPoolData,
 } from '.';
+import { lastBlockFromSubquery } from '../block';
 
 import { quantityToNumber, endOfDay, initAPI, startOfDay } from '../utils';
 
 export async function volume24HQuery() : Promise<Map<string, PoolData>> {
     // var time1 = new Date();
     // console.log(`START`);
-
+    
     var swaps = await getSwapEventOnLast24h();
     // console.log(`${swaps.length} trade made on last 24 hours`);
 
@@ -40,7 +41,10 @@ export async function volume7DQuery() : Promise<Map<string, PoolData[]>> {
     // var time1 = new Date();
     // console.log(`START`);
 
-    var swaps = await getSwapEventUntilDate();
+    const timestamp = (await lastBlockFromSubquery()).timestamp; // get last sync
+    var date = startOfDay(new Date(timestamp));
+    date.setUTCDate(date.getUTCDate() - 6);
+    var swaps = await getSwapEventUntilDate(date);
     // console.log('DONE QUERY\n');
     
     var swapsByDay = separateSwapEventByDay(swaps);

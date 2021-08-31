@@ -1,8 +1,9 @@
+import { Block } from "../dex";
 import { request, gql } from "graphql-request";
 
 export async function lastBlockFromSubquery(
     url = 'https://api.subquery.network/sq/AcalaNetwork/karura'
-) : Promise<number> {
+) : Promise<Block> {
     const {
         blocks: {
             nodes
@@ -18,11 +19,13 @@ export async function lastBlockFromSubquery(
                     nodes {
                         id
                         number
+                        timestamp
                     }
                 }
             }
         `
     );
     var obj: any = nodes[0];
-    return Number.parseFloat(obj.number);
+    // return obj;
+    return Block.fromJson(obj)
 }
