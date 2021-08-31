@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/karura_info_web/static/css/main.73771a4f.chunk.css",
-    "main.js": "/karura_info_web/static/js/main.a28db175.chunk.js",
-    "main.js.map": "/karura_info_web/static/js/main.a28db175.chunk.js.map",
+    "main.js": "/karura_info_web/static/js/main.b942c679.chunk.js",
+    "main.js.map": "/karura_info_web/static/js/main.b942c679.chunk.js.map",
     "runtime-main.js": "/karura_info_web/static/js/runtime-main.ac294142.js",
     "runtime-main.js.map": "/karura_info_web/static/js/runtime-main.ac294142.js.map",
     "static/js/2.b971866c.chunk.js": "/karura_info_web/static/js/2.b971866c.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.ac294142.js",
     "static/js/2.b971866c.chunk.js",
     "static/css/main.73771a4f.chunk.css",
-    "static/js/main.a28db175.chunk.js"
+    "static/js/main.b942c679.chunk.js"
   ]
 }
