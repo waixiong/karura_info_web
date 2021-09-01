@@ -83,11 +83,11 @@ export async function liquidityData() : Promise<LiquidityPoolData[]> {
     const data24h = await volume24HQuery();
     const liquidityData: LiquidityPoolData[] = [];
     
-    data24h.forEach((data, pair) => {
+    data7d.forEach((data, pair) => {
         liquidityData.push(new LiquidityPoolData(
             pair,
-            data,
-            data7d.get(pair)?? []
+            data24h.get(pair)?? new PoolData(pair),
+            data?? []
         ));
     });
 
