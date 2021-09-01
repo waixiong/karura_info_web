@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Karura Info
+This is Non Official Karura Info page. Was working on [karura-dex-analysis](https://github.com/waixiong/karura-dex-analysis), but decide to change the project structure. Current design will be totally depends on only subql instead of required another api server for calculation.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Current Issue
+The subquery stuck at block 438150, Deploying my own node see if able to solve the issue.
 
-## Available Scripts
+### Current status
+The plan will be fully utilize subql if possible. However, there are some part may need polkadot.js.
+#### Checklist
+- [x] 24 hours volume
+- [x] 7 days volume
+- [ ] volume for 7 days onwards
+- [x] simple swap volume (KSM) calculation
+- [x] interswap volume (KSM) calculation (for trade before block 408594)
+- [ ] get liquidity data
+- [ ] KSM price from oracle on specific block
+- [ ] USD valued volume
+- [ ] History rate base on liquidity pool
+- [ ] Calculate liquidity fee return on pool (% value, apr)
+- [ ] price of token (calculated from liquidity pool with KSM as base)
+- [ ] volume changed
+- [ ] liquidity data by token
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Buy me a coffee?
+If u think this is useful for u, and u would like to support my work, Im accepting several crypto listed below.
+- Ethereum Mainnet (ETH)
+    - 0x81759d0A298Fef37F21b1C20275c2Bd7d0d0D64E
+    - 0x63182755f988be68e3d1b93f0732fb1076c6f07a (exchange wallet, only ETH)
+- Polygon, BSC, Fantom, Moonriver, Arbitrum
+    - 0x341c0d386f630358E576a3bdFe10D9725867e142 (Accepting any coin, ERC20 or BEP20)
+- Kusama (KSM)
+    - CatWemPjSi7gwTJHe1qWvWh9bm62mdD5JeEMphY8rgXudLa
+    - EkUz6frcxsMfzeaXyLDZ7gz7s3TsFK1t7qQjqarwMD1WqYY
+- Polkadot (DOT)
+    - 13BAU7b3rP7uMsqeiuaAoKA8ptkskt3yWEj9WUJG1e22xEKr
+- Karura (KSM, KAR)
+    - oJr4c1p3BxUdHt5iqHynL7F2WcrMsQLCwy23vZLuzFTbZfU
