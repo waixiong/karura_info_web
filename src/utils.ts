@@ -16,6 +16,7 @@ export function priceToNumber(bn: BN): number {
 // // query with graphql format on subql-node
 // // node: https://api.subquery.network/sq/AcalaNetwork/karura
 // // node: https://api.polkawallet.io/karura-subql
+// // node: https://api.polkawallet.io/acala-subql
 // export async function subquery(
 //     query, 
 //     url = "https://api.subquery.network/sq/AcalaNetwork/karura"

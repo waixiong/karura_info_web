@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import { 
     getSwapEventUntilDate, 
     separateSwapEventByDay,
@@ -10,10 +11,12 @@ import {
     liquidtyConfig, NATIVE,
     historyRateFromLiquidity,
     LiquidityPoolData,
+	separateRawSwapEventByDay,
 } from '.';
 import { lastBlockFromSubquery } from '../block';
 
 import { quantityToNumber, endOfDay, initAPI, startOfDay } from '../utils';
+import { DexStateInterface } from './dex.state';
 
 export async function volume24HQuery() : Promise<Map<string, PoolData>> {
     // var time1 = new Date();
@@ -47,19 +50,14 @@ export async function volume7DQuery() : Promise<Map<string, PoolData[]>> {
     var swaps = await getSwapEventUntilDate(date);
     // console.log('DONE QUERY\n');
     
-    var swapsByDay = separateSwapEventByDay(swaps);
+	// computing
+	var [rawSwaps, _] = transformRawSwapAction(swaps);
+    var swapsByDay = separateRawSwapEventByDay(rawSwaps);
 
     const poolData : Map<string, PoolData[]> = new Map();
 
     for (var swapsOfDay of swapsByDay) {
-        // console.log(`${swapsOfDay.length} trade made on ${
-        //     startOfDay(new Date(swapsOfDay[0].block!.timestamp)).toUTCString()
-        // }`);
-
-        // computing
-        var [rawSwaps, _] = transformRawSwapAction(swapsOfDay);
-        // console.log(`\nskip ${skip} interswap\n`);
-        var pools: Map<string, PoolData> = categorizeSwapEventsToPool(rawSwaps);
+        var pools: Map<string, PoolData> = categorizeSwapEventsToPool(swapsOfDay);
         pools.forEach((pool, pair) => {
             if (!poolData.has(pair)) {
                 poolData.set(pair, []);
@@ -73,8 +71,6 @@ export async function volume7DQuery() : Promise<Map<string, PoolData[]>> {
         // console.log('');
     }
 
-    // var time2 = new Date();
-    // console.log(`\nTime taken: ${time2.getTime() - time1.getTime()} ms`);
     return poolData;
 }
 

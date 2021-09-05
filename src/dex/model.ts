@@ -133,6 +133,9 @@ export class RawSwapAction {
     fromAmount: bigint;
     toCurrency: string;
     toAmount: bigint;
+    // // amount data
+    // ksmValue: number;
+    // usdValue: number;
 
     constructor(raw: {
         id: string,

@@ -3,6 +3,7 @@ import { SwapEvent } from "./model";
 import { ApiPromise } from '@polkadot/api';
 import { AnyNumber } from '@polkadot/types/types';
 import { liquidtyConfig, NATIVE } from './config';
+import { SubqueryUrl } from '../config';
 
 // query with graphql format on subql-node
 // node: https://api.subquery.network/sq/AcalaNetwork/karura
@@ -65,15 +66,14 @@ export async function historyNativePrice(blockNumber: AnyNumber, karuraApi: ApiP
 // this will be limited on 100 events, if u know the event u wan from block, can use querySwapFromBlock
 export async function querySwap(
     count: number, 
-    offset: number = 0, 
-    url = 'https://api.subquery.network/sq/AcalaNetwork/karura'
+    offset: number = 0,
 ) : Promise<SwapEvent[]> {
     const {
         events: {
             nodes
         }
     } = await request(
-        url,
+        SubqueryUrl,
         gql`
             query {
                 events (
@@ -108,23 +108,28 @@ export async function querySwap(
     return swapEvents;
 }
 
+// fromBlock not included
+// toBlock included
 export async function querySwapFromBlock(
-    fromBlock: number, 
-    url = 'https://api.subquery.network/sq/AcalaNetwork/karura',
+    fromBlock: number,
+    toBlock?: number | undefined,
 ) : Promise<SwapEvent[]> {
     const {
         events: {
             nodes
         }
     } = await request(
-        url,
+        SubqueryUrl,
         gql`
             query {
                 events (
                     orderBy: BLOCK_NUMBER_DESC
                     filter: {
                         method: { equalTo: "Swap" }
-                        blockNumber: { greaterThan: "${fromBlock}" }
+                        blockNumber: { 
+                            greaterThan: "${fromBlock}"
+                            ${ toBlock !== undefined? `lessThanOrEqualTo: "${toBlock}"` : `` }
+                        }
                     }
                 ) {
                     nodes {

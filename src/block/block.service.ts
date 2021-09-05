@@ -1,15 +1,14 @@
 import { Block } from "../dex";
 import { request, gql } from "graphql-request";
+import { SubqueryUrl } from '../config';
 
-export async function lastBlockFromSubquery(
-    url = 'https://api.subquery.network/sq/AcalaNetwork/karura'
-) : Promise<Block> {
+export async function lastBlockFromSubquery() : Promise<Block> {
     const {
         blocks: {
             nodes
         }
     } = await request(
-        url,
+        SubqueryUrl,
         gql`
             query {
                 blocks (

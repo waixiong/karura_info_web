@@ -1,13 +1,15 @@
 import './App.css';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { LastBlockSync, LiquidityDataComponent } from './app.query';
+import { LastBlockSync, LiquidityDataComponent, Length } from './app.component';
 import { theme } from './theme';
 
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import {
   AppBar, Toolbar, Typography
 } from '@material-ui/core';
+import { DexStateProvider } from './dex/dex.state';
+import React from 'react';
 
 // https://github.com/Uniswap/uniswap-v3-info/blob/188b6e666afd7e7c00d20a8731cd0ea76fccc6c9/src/components/BarChart/alt.tsx
 // https://github.com/Uniswap/uniswap-v3-info/blob/188b6e666afd7e7c00d20a8731cd0ea76fccc6c9/src/components/LineChart/alt.tsx
@@ -48,17 +50,21 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App-background">
-          <QueryClientProvider client={queryClient}>
-            <CustomAppBar/>
+      <QueryClientProvider client={queryClient}>
+        <div className="App-background">
+            <DexStateProvider>
+              
+                <CustomAppBar/>
 
-            <div className="App">
-              {/* <div className={classes.display}> */}
-                <LiquidityDataComponent/>
-              {/* </div> */}
-            </div>
-          </QueryClientProvider>
-      </div>
+                <div className="App">
+                  {/* <div className={classes.display}> */}
+                    <LiquidityDataComponent/>
+                    {/* <Length/> */}
+                  {/* </div> */}
+                </div>
+            </DexStateProvider>
+        </div>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }
